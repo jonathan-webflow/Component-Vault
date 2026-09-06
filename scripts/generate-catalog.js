@@ -51,6 +51,7 @@ function scanComponents() {
         id,
         label: formatLabel(id),
         path: `${id}/index.html`,
+        download: `downloads/${id}.zip`,
         thumbnail: findThumbnail(componentPath),
         isFree: id.startsWith("mwg_free_"),
         hasDemo,
@@ -85,10 +86,16 @@ function renderCard(component) {
           <h2>${escapeHtml(component.label)}</h2>
           ${badge}
         </div>
-        <a class="card-link" href="${escapeHtml(component.path)}" target="_blank" rel="noopener noreferrer">
-          Abrir demo
-          <span aria-hidden="true">↗</span>
-        </a>
+        <div class="card-actions">
+          <a class="card-link" href="${escapeHtml(component.path)}" target="_blank" rel="noopener noreferrer">
+            Abrir demo
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="card-link card-link--download" href="${escapeHtml(component.download)}" download="${escapeHtml(component.id)}.zip">
+            Baixar
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </div>
     </article>`;
 }
@@ -101,19 +108,48 @@ function renderIndex(components) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Component Vault</title>
+  <title>Component Vault — Carthagos</title>
   <meta name="description" content="Galeria de efeitos GSAP (Made With GSAP) prontos para preview e uso.">
   <style>
+    @font-face {
+      font-family: "PP Neue Montreal";
+      src: url("assets/brand/PPNeueMontreal-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PP Neue Montreal";
+      src: url("assets/brand/PPNeueMontreal-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Exposure";
+      src: url("assets/brand/ExposureItalicTrial.otf") format("opentype");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: dark;
-      --bg: #05060a;
-      --surface: #0d1017;
-      --surface-hover: #141925;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f5f7fb;
-      --muted: rgba(245, 247, 251, 0.55);
-      --accent: #7c5cff;
-      --accent-soft: rgba(124, 92, 255, 0.16);
+      --dark: #282828;
+      --navy: #101B32;
+      --accent: #FE4004;
+      --blue: #9FD5F3;
+      --text-light: #C9D5DB;
+      --text-body: #3A3A3A;
+      --text-muted: #7A8B94;
+      --white: #FFFFFF;
+      --cover-bg: #1A1E2E;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(201, 213, 219, 0.12);
+      --accent-soft: rgba(254, 64, 4, 0.14);
     }
 
     * { box-sizing: border-box; }
@@ -121,54 +157,106 @@ function renderIndex(components) {
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "PP Neue Montreal", ui-sans-serif, system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 520px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(circle at top, rgba(124, 92, 255, 0.12), transparent 32%),
-        var(--bg);
-      color: var(--text);
+        linear-gradient(180deg, rgba(16, 27, 50, 0.15) 0%, rgba(16, 27, 50, 0.88) 72%, var(--navy) 100%);
     }
 
     .page {
+      position: relative;
       width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0 72px;
+      padding: 40px 0 80px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .site-header img {
+      width: 60px;
+      height: auto;
+      display: block;
+    }
+
+    .site-header span {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-light);
     }
 
     .hero {
       display: grid;
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 20px;
+      max-width: 720px;
+      margin-bottom: 48px;
     }
 
     .eyebrow {
       margin: 0;
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--blue);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      font-family: Exposure, "Times New Roman", serif;
+      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--white);
     }
 
     .hero-copy {
       margin: 0;
-      max-width: 640px;
-      color: var(--muted);
-      line-height: 1.6;
+      max-width: 560px;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.65;
     }
 
     .toolbar {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .search {
@@ -178,31 +266,43 @@ function renderIndex(components) {
 
     .search input {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 999px;
+      padding: 14px 18px;
+      border-radius: 0;
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
+      border-left: 3px solid var(--accent);
+      background: var(--cover-bg);
+      color: var(--white);
       font: inherit;
       outline: none;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
+    .search input::placeholder {
+      color: var(--text-muted);
+    }
+
     .search input:focus {
-      border-color: rgba(124, 92, 255, 0.55);
-      background: #111522;
+      border-color: var(--accent);
+      background: rgba(26, 30, 46, 0.95);
     }
 
     .count {
-      font-size: 14px;
-      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
       white-space: nowrap;
+    }
+
+    .count span {
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     .card {
@@ -210,21 +310,23 @@ function renderIndex(components) {
       flex-direction: column;
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      border-radius: 0;
+      background: var(--cover-bg);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(124, 92, 255, 0.35);
-      background: var(--surface-hover);
+      transform: translateY(-3px);
+      border-color: rgba(254, 64, 4, 0.45);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
     .card-media {
       aspect-ratio: 16 / 10;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(124, 92, 255, 0.18), rgba(255, 255, 255, 0.03));
+      background:
+        linear-gradient(135deg, rgba(254, 64, 4, 0.18), rgba(159, 213, 243, 0.08)),
+        var(--dark);
       border-bottom: 1px solid var(--border);
     }
 
@@ -233,6 +335,11 @@ function renderIndex(components) {
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover .card-media img {
+      transform: scale(1.03);
     }
 
     .card-fallback {
@@ -240,16 +347,17 @@ function renderIndex(components) {
       height: 100%;
       display: grid;
       place-items: center;
-      font-size: 14px;
-      letter-spacing: 0.12em;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--text-light);
     }
 
     .card-body {
       display: grid;
-      gap: 16px;
-      padding: 18px;
+      gap: 18px;
+      padding: 20px;
     }
 
     .card-title-row {
@@ -257,22 +365,34 @@ function renderIndex(components) {
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
     }
 
     .card h2 {
       margin: 0;
       font-size: 1rem;
-      letter-spacing: 0.02em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--accent);
     }
 
     .badge {
-      padding: 4px 8px;
-      border-radius: 999px;
+      padding: 4px 10px;
+      border-radius: 0;
       background: var(--accent-soft);
-      color: #cbbcff;
-      font-size: 11px;
-      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-top: 4px;
     }
 
     .card-link {
@@ -281,53 +401,94 @@ function renderIndex(components) {
       justify-content: space-between;
       gap: 8px;
       padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
+      border: 1px solid var(--border);
+      color: var(--text-light);
       text-decoration: none;
-      font-size: 14px;
-      transition: background 0.2s ease, color 0.2s ease;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
     .card-link:hover {
+      color: var(--accent);
+      border-color: rgba(254, 64, 4, 0.45);
+    }
+
+    .card-link--download {
       background: var(--accent-soft);
-      color: #efe9ff;
+      border-color: rgba(254, 64, 4, 0.35);
+      color: var(--accent);
+    }
+
+    .card-link--download:hover {
+      background: rgba(254, 64, 4, 0.22);
+      color: var(--white);
     }
 
     .empty {
       display: none;
-      padding: 48px 24px;
+      padding: 56px 24px;
       text-align: center;
-      color: var(--muted);
+      color: var(--text-muted);
       border: 1px dashed var(--border);
-      border-radius: 20px;
+      border-left: 3px solid var(--accent);
+      background: var(--cover-bg);
     }
 
     .empty.visible {
       display: block;
     }
 
+    .site-footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     @media (max-width: 640px) {
       .page {
         width: min(100%, calc(100% - 24px));
-        padding-top: 32px;
+        padding-top: 24px;
       }
 
-      .toolbar {
+      .toolbar,
+      .site-header,
+      .site-footer {
         align-items: stretch;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/brand/cover-bg-clean.png" alt="">
+  </div>
+
   <main class="page">
-    <header class="hero">
+    <header class="site-header">
+      <img src="assets/brand/crt-logo-orange.png" alt="Carthagos">
+      <span>Component Vault</span>
+    </header>
+
+    <section class="hero">
       <p class="eyebrow">Made With GSAP</p>
       <h1>Component Vault</h1>
       <p class="hero-copy">
         Galeria de efeitos GSAP prontos para preview. Cada demo abre em tela cheia para preservar scroll e interações.
       </p>
-    </header>
+    </section>
 
     <section class="toolbar" aria-label="Filtros da galeria">
       <label class="search">
@@ -342,6 +503,11 @@ function renderIndex(components) {
     </section>
 
     <p id="empty" class="empty">Nenhum componente encontrado para essa busca.</p>
+
+    <footer class="site-footer">
+      <span>Carthagos Design System</span>
+      <span>GSAP Effects Library</span>
+    </footer>
   </main>
 
   <script>

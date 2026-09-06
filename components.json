@@ -3,6 +3,7 @@
     "id": "mwg_free_001",
     "label": "Free 001",
     "path": "mwg_free_001/index.html",
+    "download": "downloads/mwg_free_001.zip",
     "thumbnail": "mwg_free_001/assets/medias/01.png",
     "isFree": true,
     "hasDemo": true
@@ -11,6 +12,7 @@
     "id": "mwg_free_002",
     "label": "Free 002",
     "path": "mwg_free_002/index.html",
+    "download": "downloads/mwg_free_002.zip",
     "thumbnail": "mwg_free_002/assets/medias/01.png",
     "isFree": true,
     "hasDemo": true
@@ -19,6 +21,7 @@
     "id": "mwg_051",
     "label": "MWG 051",
     "path": "mwg_051/index.html",
+    "download": "downloads/mwg_051.zip",
     "thumbnail": "mwg_051/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -27,6 +30,7 @@
     "id": "mwg_052",
     "label": "MWG 052",
     "path": "mwg_052/index.html",
+    "download": "downloads/mwg_052.zip",
     "thumbnail": "mwg_052/assets/medias/ferran.png",
     "isFree": false,
     "hasDemo": true
@@ -35,6 +39,7 @@
     "id": "mwg_053",
     "label": "MWG 053",
     "path": "mwg_053/index.html",
+    "download": "downloads/mwg_053.zip",
     "thumbnail": "mwg_053/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -43,6 +48,7 @@
     "id": "mwg_054",
     "label": "MWG 054",
     "path": "mwg_054/index.html",
+    "download": "downloads/mwg_054.zip",
     "thumbnail": "mwg_054/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -51,6 +57,7 @@
     "id": "mwg_055",
     "label": "MWG 055",
     "path": "mwg_055/index.html",
+    "download": "downloads/mwg_055.zip",
     "thumbnail": "mwg_055/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -59,6 +66,7 @@
     "id": "mwg_056",
     "label": "MWG 056",
     "path": "mwg_056/index.html",
+    "download": "downloads/mwg_056.zip",
     "thumbnail": "mwg_056/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -67,6 +75,7 @@
     "id": "mwg_057",
     "label": "MWG 057",
     "path": "mwg_057/index.html",
+    "download": "downloads/mwg_057.zip",
     "thumbnail": "mwg_057/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -75,6 +84,7 @@
     "id": "mwg_058",
     "label": "MWG 058",
     "path": "mwg_058/index.html",
+    "download": "downloads/mwg_058.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -83,6 +93,7 @@
     "id": "mwg_059",
     "label": "MWG 059",
     "path": "mwg_059/index.html",
+    "download": "downloads/mwg_059.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -91,6 +102,7 @@
     "id": "mwg_060",
     "label": "MWG 060",
     "path": "mwg_060/index.html",
+    "download": "downloads/mwg_060.zip",
     "thumbnail": "mwg_060/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -99,6 +111,7 @@
     "id": "mwg_061",
     "label": "MWG 061",
     "path": "mwg_061/index.html",
+    "download": "downloads/mwg_061.zip",
     "thumbnail": "mwg_061/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -107,6 +120,7 @@
     "id": "mwg_062",
     "label": "MWG 062",
     "path": "mwg_062/index.html",
+    "download": "downloads/mwg_062.zip",
     "thumbnail": "mwg_062/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -115,6 +129,7 @@
     "id": "mwg_063",
     "label": "MWG 063",
     "path": "mwg_063/index.html",
+    "download": "downloads/mwg_063.zip",
     "thumbnail": "mwg_063/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -123,6 +138,7 @@
     "id": "mwg_064",
     "label": "MWG 064",
     "path": "mwg_064/index.html",
+    "download": "downloads/mwg_064.zip",
     "thumbnail": "mwg_064/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -131,6 +147,7 @@
     "id": "mwg_065",
     "label": "MWG 065",
     "path": "mwg_065/index.html",
+    "download": "downloads/mwg_065.zip",
     "thumbnail": "mwg_065/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -139,6 +156,7 @@
     "id": "mwg_066",
     "label": "MWG 066",
     "path": "mwg_066/index.html",
+    "download": "downloads/mwg_066.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -147,6 +165,7 @@
     "id": "mwg_067",
     "label": "MWG 067",
     "path": "mwg_067/index.html",
+    "download": "downloads/mwg_067.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -155,6 +174,7 @@
     "id": "mwg_068",
     "label": "MWG 068",
     "path": "mwg_068/index.html",
+    "download": "downloads/mwg_068.zip",
     "thumbnail": "mwg_068/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -163,6 +183,7 @@
     "id": "mwg_069",
     "label": "MWG 069",
     "path": "mwg_069/index.html",
+    "download": "downloads/mwg_069.zip",
     "thumbnail": "mwg_069/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -171,6 +192,7 @@
     "id": "mwg_070",
     "label": "MWG 070",
     "path": "mwg_070/index.html",
+    "download": "downloads/mwg_070.zip",
     "thumbnail": "mwg_070/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -179,6 +201,7 @@
     "id": "mwg_071",
     "label": "MWG 071",
     "path": "mwg_071/index.html",
+    "download": "downloads/mwg_071.zip",
     "thumbnail": "mwg_071/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -187,6 +210,7 @@
     "id": "mwg_072",
     "label": "MWG 072",
     "path": "mwg_072/index.html",
+    "download": "downloads/mwg_072.zip",
     "thumbnail": "mwg_072/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -195,6 +219,7 @@
     "id": "mwg_073",
     "label": "MWG 073",
     "path": "mwg_073/index.html",
+    "download": "downloads/mwg_073.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -203,6 +228,7 @@
     "id": "mwg_074",
     "label": "MWG 074",
     "path": "mwg_074/index.html",
+    "download": "downloads/mwg_074.zip",
     "thumbnail": "mwg_074/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -211,6 +237,7 @@
     "id": "mwg_075",
     "label": "MWG 075",
     "path": "mwg_075/index.html",
+    "download": "downloads/mwg_075.zip",
     "thumbnail": "mwg_075/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -219,6 +246,7 @@
     "id": "mwg_076",
     "label": "MWG 076",
     "path": "mwg_076/index.html",
+    "download": "downloads/mwg_076.zip",
     "thumbnail": "mwg_076/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -227,6 +255,7 @@
     "id": "mwg_077",
     "label": "MWG 077",
     "path": "mwg_077/index.html",
+    "download": "downloads/mwg_077.zip",
     "thumbnail": "mwg_077/assets/medias/background.png",
     "isFree": false,
     "hasDemo": true
@@ -235,6 +264,7 @@
     "id": "mwg_078",
     "label": "MWG 078",
     "path": "mwg_078/index.html",
+    "download": "downloads/mwg_078.zip",
     "thumbnail": "mwg_078/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -243,6 +273,7 @@
     "id": "mwg_079",
     "label": "MWG 079",
     "path": "mwg_079/index.html",
+    "download": "downloads/mwg_079.zip",
     "thumbnail": "mwg_079/assets/medias/neverenough.png",
     "isFree": false,
     "hasDemo": true
@@ -251,6 +282,7 @@
     "id": "mwg_080",
     "label": "MWG 080",
     "path": "mwg_080/index.html",
+    "download": "downloads/mwg_080.zip",
     "thumbnail": "mwg_080/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -259,6 +291,7 @@
     "id": "mwg_081",
     "label": "MWG 081",
     "path": "mwg_081/index.html",
+    "download": "downloads/mwg_081.zip",
     "thumbnail": "mwg_081/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -267,6 +300,7 @@
     "id": "mwg_082",
     "label": "MWG 082",
     "path": "mwg_082/index.html",
+    "download": "downloads/mwg_082.zip",
     "thumbnail": "mwg_082/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -275,6 +309,7 @@
     "id": "mwg_083",
     "label": "MWG 083",
     "path": "mwg_083/index.html",
+    "download": "downloads/mwg_083.zip",
     "thumbnail": "mwg_083/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -283,6 +318,7 @@
     "id": "mwg_084",
     "label": "MWG 084",
     "path": "mwg_084/index.html",
+    "download": "downloads/mwg_084.zip",
     "thumbnail": "mwg_084/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -291,6 +327,7 @@
     "id": "mwg_085",
     "label": "MWG 085",
     "path": "mwg_085/index.html",
+    "download": "downloads/mwg_085.zip",
     "thumbnail": "mwg_085/assets/medias/papota.png",
     "isFree": false,
     "hasDemo": true
@@ -299,6 +336,7 @@
     "id": "mwg_086",
     "label": "MWG 086",
     "path": "mwg_086/index.html",
+    "download": "downloads/mwg_086.zip",
     "thumbnail": "mwg_086/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -307,6 +345,7 @@
     "id": "mwg_087",
     "label": "MWG 087",
     "path": "mwg_087/index.html",
+    "download": "downloads/mwg_087.zip",
     "thumbnail": "mwg_087/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -315,6 +354,7 @@
     "id": "mwg_088",
     "label": "MWG 088",
     "path": "mwg_088/index.html",
+    "download": "downloads/mwg_088.zip",
     "thumbnail": "mwg_088/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -323,6 +363,7 @@
     "id": "mwg_089",
     "label": "MWG 089",
     "path": "mwg_089/index.html",
+    "download": "downloads/mwg_089.zip",
     "thumbnail": "mwg_089/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -331,6 +372,7 @@
     "id": "mwg_090",
     "label": "MWG 090",
     "path": "mwg_090/index.html",
+    "download": "downloads/mwg_090.zip",
     "thumbnail": "mwg_090/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -339,6 +381,7 @@
     "id": "mwg_091",
     "label": "MWG 091",
     "path": "mwg_091/index.html",
+    "download": "downloads/mwg_091.zip",
     "thumbnail": "mwg_091/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -347,6 +390,7 @@
     "id": "mwg_092",
     "label": "MWG 092",
     "path": "mwg_092/index.html",
+    "download": "downloads/mwg_092.zip",
     "thumbnail": "mwg_092/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -355,6 +399,7 @@
     "id": "mwg_093",
     "label": "MWG 093",
     "path": "mwg_093/index.html",
+    "download": "downloads/mwg_093.zip",
     "thumbnail": "mwg_093/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -363,6 +408,7 @@
     "id": "mwg_094",
     "label": "MWG 094",
     "path": "mwg_094/index.html",
+    "download": "downloads/mwg_094.zip",
     "thumbnail": "mwg_094/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -371,6 +417,7 @@
     "id": "mwg_095",
     "label": "MWG 095",
     "path": "mwg_095/index.html",
+    "download": "downloads/mwg_095.zip",
     "thumbnail": "mwg_095/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -379,6 +426,7 @@
     "id": "mwg_096",
     "label": "MWG 096",
     "path": "mwg_096/index.html",
+    "download": "downloads/mwg_096.zip",
     "thumbnail": "mwg_096/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -387,6 +435,7 @@
     "id": "mwg_097",
     "label": "MWG 097",
     "path": "mwg_097/index.html",
+    "download": "downloads/mwg_097.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -395,6 +444,7 @@
     "id": "mwg_098",
     "label": "MWG 098",
     "path": "mwg_098/index.html",
+    "download": "downloads/mwg_098.zip",
     "thumbnail": "mwg_098/assets/medias/lewis.png",
     "isFree": false,
     "hasDemo": true
@@ -403,6 +453,7 @@
     "id": "mwg_101",
     "label": "MWG 101",
     "path": "mwg_101/index.html",
+    "download": "downloads/mwg_101.zip",
     "thumbnail": "mwg_101/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -411,6 +462,7 @@
     "id": "mwg_102",
     "label": "MWG 102",
     "path": "mwg_102/index.html",
+    "download": "downloads/mwg_102.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -419,6 +471,7 @@
     "id": "mwg_103",
     "label": "MWG 103",
     "path": "mwg_103/index.html",
+    "download": "downloads/mwg_103.zip",
     "thumbnail": "mwg_103/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -427,6 +480,7 @@
     "id": "mwg_104",
     "label": "MWG 104",
     "path": "mwg_104/index.html",
+    "download": "downloads/mwg_104.zip",
     "thumbnail": "mwg_104/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -435,6 +489,7 @@
     "id": "mwg_105",
     "label": "MWG 105",
     "path": "mwg_105/index.html",
+    "download": "downloads/mwg_105.zip",
     "thumbnail": "mwg_105/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -443,6 +498,7 @@
     "id": "mwg_106",
     "label": "MWG 106",
     "path": "mwg_106/index.html",
+    "download": "downloads/mwg_106.zip",
     "thumbnail": "mwg_106/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -451,6 +507,7 @@
     "id": "mwg_107",
     "label": "MWG 107",
     "path": "mwg_107/index.html",
+    "download": "downloads/mwg_107.zip",
     "thumbnail": "mwg_107/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -459,6 +516,7 @@
     "id": "mwg_108",
     "label": "MWG 108",
     "path": "mwg_108/index.html",
+    "download": "downloads/mwg_108.zip",
     "thumbnail": "mwg_108/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -467,6 +525,7 @@
     "id": "mwg_109",
     "label": "MWG 109",
     "path": "mwg_109/index.html",
+    "download": "downloads/mwg_109.zip",
     "thumbnail": "mwg_109/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -475,6 +534,7 @@
     "id": "mwg_110",
     "label": "MWG 110",
     "path": "mwg_110/index.html",
+    "download": "downloads/mwg_110.zip",
     "thumbnail": "mwg_110/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
@@ -483,6 +543,7 @@
     "id": "mwg_111",
     "label": "MWG 111",
     "path": "mwg_111/index.html",
+    "download": "downloads/mwg_111.zip",
     "thumbnail": "mwg_111/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -491,6 +552,7 @@
     "id": "mwg_112",
     "label": "MWG 112",
     "path": "mwg_112/index.html",
+    "download": "downloads/mwg_112.zip",
     "thumbnail": null,
     "isFree": false,
     "hasDemo": true
@@ -499,6 +561,7 @@
     "id": "mwg_113",
     "label": "MWG 113",
     "path": "mwg_113/index.html",
+    "download": "downloads/mwg_113.zip",
     "thumbnail": "mwg_113/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -507,6 +570,7 @@
     "id": "mwg_114",
     "label": "MWG 114",
     "path": "mwg_114/index.html",
+    "download": "downloads/mwg_114.zip",
     "thumbnail": "mwg_114/assets/medias/01.png",
     "isFree": false,
     "hasDemo": true
@@ -515,6 +579,7 @@
     "id": "mwg_115",
     "label": "MWG 115",
     "path": "mwg_115/index.html",
+    "download": "downloads/mwg_115.zip",
     "thumbnail": "mwg_115/assets/medias/1.png",
     "isFree": false,
     "hasDemo": true
