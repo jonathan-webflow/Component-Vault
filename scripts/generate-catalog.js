@@ -88,11 +88,11 @@ function renderCard(component) {
         </div>
         <div class="card-actions">
           <a class="card-link" href="${escapeHtml(component.path)}" target="_blank" rel="noopener noreferrer">
-            Abrir demo
+            Open demo
             <span aria-hidden="true">↗</span>
           </a>
           <a class="card-link card-link--download" href="${escapeHtml(component.download)}" download="${escapeHtml(component.id)}.zip">
-            Baixar
+            Download
             <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -104,12 +104,12 @@ function renderIndex(components) {
   const cards = components.map(renderCard).join("\n");
 
   return `<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Component Vault — Carthagos</title>
-  <meta name="description" content="Galeria de efeitos GSAP (Made With GSAP) prontos para preview e uso.">
+  <meta name="description" content="Gallery of GSAP effects (Made With GSAP) ready for preview and download.">
   <style>
     @font-face {
       font-family: "PP Neue Montreal";
@@ -486,23 +486,23 @@ function renderIndex(components) {
       <p class="eyebrow">Made With GSAP</p>
       <h1>Component Vault</h1>
       <p class="hero-copy">
-        Galeria de efeitos GSAP prontos para preview. Cada demo abre em tela cheia para preservar scroll e interações.
+        A gallery of GSAP effects ready for preview. Each demo opens full-screen to preserve scroll and interactions.
       </p>
     </section>
 
-    <section class="toolbar" aria-label="Filtros da galeria">
+    <section class="toolbar" aria-label="Gallery filters">
       <label class="search">
-        <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Buscar componente</span>
-        <input id="search" type="search" placeholder="Buscar por MWG 051, free, etc." autocomplete="off">
+        <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Search components</span>
+        <input id="search" type="search" placeholder="Search by MWG 051, free, etc." autocomplete="off">
       </label>
-      <p class="count"><span id="visible-count">${components.length}</span> de ${components.length} componentes</p>
+      <p class="count"><span id="visible-count">${components.length}</span> of ${components.length} components</p>
     </section>
 
     <section id="grid" class="grid">
       ${cards}
     </section>
 
-    <p id="empty" class="empty">Nenhum componente encontrado para essa busca.</p>
+    <p id="empty" class="empty">No components found for this search.</p>
 
     <footer class="site-footer">
       <span>Carthagos Design System</span>
