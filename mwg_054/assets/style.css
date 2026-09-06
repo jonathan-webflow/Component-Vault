@@ -1,0 +1,71 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect054 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mwg_effect054 .pin-height {
+    height: 500vh;
+}
+.mwg_effect054 .container {
+    height: 100vh;
+    width: 100%;
+    perspective: 300vh;
+}
+.mwg_effect054 .media {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.mwg_effect054 .media1 {
+    z-index: 4;
+    top: -5vh;
+    height: 110%;
+}
+.mwg_effect054 .media2 {
+    z-index: 3;
+    top: -10vh;
+    height: 120%;
+}
+.mwg_effect054 .media3 {
+    z-index: 2;
+    top: -15vh;
+    height: 130%;
+}
+.mwg_effect054 .media4 {
+    z-index: 1;
+    top: -20vh;
+    height: 140%;
+}
+.mwg_effect054 .media img {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    object-fit: contain;
+    bottom: 0;
+    transform: translate(-50%, 50%) rotateX(90deg);
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 1vw;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect054 .media img {
+        width: 40vw;
+        height: 40vw;
+    }
+}

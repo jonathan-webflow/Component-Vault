@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+
+/* to prevent scroll bumps, remove this if you want to keep the flow of the page */
+html:has(.mwg_free_effect002), 
+body:has(.mwg_free_effect002) {
+    overflow: hidden;
+}
+
+.mwg_free_effect002 {
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
+}
+
+.mwg_free_effect002 .content-effect {
+    font-size: min(60px, 5.6vw);
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    letter-spacing: -0.03em;
+
+    span { 
+        display: block;
+        width: max-content;
+    }
+    span:last-child {
+        color: #999;
+    }
+}
+
+.mwg_free_effect002 img {
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    object-fit: cover;
+    border-radius: 4%;
+    z-index: 5;
+}
+
+.mwg_free_effect002 .medias img {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .mwg_free_effect002 img {
+        width: 35vw;
+        height: 35vw;
+    }
+}

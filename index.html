@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Vault</title>
+  <meta name="description" content="Galeria de efeitos GSAP (Made With GSAP) prontos para preview e uso.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05060a;
+      --surface: #0d1017;
+      --surface-hover: #141925;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f5f7fb;
+      --muted: rgba(245, 247, 251, 0.55);
+      --accent: #7c5cff;
+      --accent-soft: rgba(124, 92, 255, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(124, 92, 255, 0.12), transparent 32%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy {
+      margin: 0;
+      max-width: 640px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .search {
+      flex: 1 1 280px;
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .search input:focus {
+      border-color: rgba(124, 92, 255, 0.55);
+      background: #111522;
+    }
+
+    .count {
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 92, 255, 0.35);
+      background: var(--surface-hover);
+    }
+
+    .card-media {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.18), rgba(255, 255, 255, 0.03));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-fallback {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .card-body {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #cbbcff;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .card-link:hover {
+      background: var(--accent-soft);
+      color: #efe9ff;
+    }
+
+    .empty {
+      display: none;
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 20px;
+    }
+
+    .empty.visible {
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100%, calc(100% - 24px));
+        padding-top: 32px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Made With GSAP</p>
+      <h1>Component Vault</h1>
+      <p class="hero-copy">
+        Galeria de efeitos GSAP prontos para preview. Cada demo abre em tela cheia para preservar scroll e interações.
+      </p>
+    </header>
+
+    <section class="toolbar" aria-label="Filtros da galeria">
+      <label class="search">
+        <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Buscar componente</span>
+        <input id="search" type="search" placeholder="Buscar por MWG 051, free, etc." autocomplete="off">
+      </label>
+      <p class="count"><span id="visible-count">65</span> de 65 componentes</p>
+    </section>
+
+    <section id="grid" class="grid">
+      
+    <article class="card" data-id="mwg_free_001" data-label="free 001">
+      <div class="card-media">
+        <img src="mwg_free_001/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>Free 001</h2>
+          <span class="badge">Free</span>
+        </div>
+        <a class="card-link" href="mwg_free_001/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_free_002" data-label="free 002">
+      <div class="card-media">
+        <img src="mwg_free_002/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>Free 002</h2>
+          <span class="badge">Free</span>
+        </div>
+        <a class="card-link" href="mwg_free_002/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_051" data-label="mwg 051">
+      <div class="card-media">
+        <img src="mwg_051/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 051</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_051/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_052" data-label="mwg 052">
+      <div class="card-media">
+        <img src="mwg_052/assets/medias/ferran.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 052</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_052/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_053" data-label="mwg 053">
+      <div class="card-media">
+        <img src="mwg_053/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 053</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_053/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_054" data-label="mwg 054">
+      <div class="card-media">
+        <img src="mwg_054/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 054</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_054/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_055" data-label="mwg 055">
+      <div class="card-media">
+        <img src="mwg_055/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 055</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_055/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_056" data-label="mwg 056">
+      <div class="card-media">
+        <img src="mwg_056/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 056</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_056/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_057" data-label="mwg 057">
+      <div class="card-media">
+        <img src="mwg_057/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 057</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_057/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_058" data-label="mwg 058">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 058</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 058</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_058/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_059" data-label="mwg 059">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 059</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 059</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_059/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_060" data-label="mwg 060">
+      <div class="card-media">
+        <img src="mwg_060/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 060</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_060/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_061" data-label="mwg 061">
+      <div class="card-media">
+        <img src="mwg_061/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 061</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_061/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_062" data-label="mwg 062">
+      <div class="card-media">
+        <img src="mwg_062/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 062</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_062/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_063" data-label="mwg 063">
+      <div class="card-media">
+        <img src="mwg_063/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 063</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_063/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_064" data-label="mwg 064">
+      <div class="card-media">
+        <img src="mwg_064/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 064</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_064/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_065" data-label="mwg 065">
+      <div class="card-media">
+        <img src="mwg_065/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 065</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_065/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_066" data-label="mwg 066">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 066</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 066</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_066/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_067" data-label="mwg 067">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 067</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 067</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_067/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_068" data-label="mwg 068">
+      <div class="card-media">
+        <img src="mwg_068/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 068</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_068/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_069" data-label="mwg 069">
+      <div class="card-media">
+        <img src="mwg_069/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 069</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_069/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_070" data-label="mwg 070">
+      <div class="card-media">
+        <img src="mwg_070/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 070</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_070/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_071" data-label="mwg 071">
+      <div class="card-media">
+        <img src="mwg_071/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 071</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_071/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_072" data-label="mwg 072">
+      <div class="card-media">
+        <img src="mwg_072/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 072</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_072/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_073" data-label="mwg 073">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 073</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 073</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_073/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_074" data-label="mwg 074">
+      <div class="card-media">
+        <img src="mwg_074/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 074</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_074/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_075" data-label="mwg 075">
+      <div class="card-media">
+        <img src="mwg_075/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 075</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_075/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_076" data-label="mwg 076">
+      <div class="card-media">
+        <img src="mwg_076/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 076</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_076/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_077" data-label="mwg 077">
+      <div class="card-media">
+        <img src="mwg_077/assets/medias/background.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 077</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_077/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_078" data-label="mwg 078">
+      <div class="card-media">
+        <img src="mwg_078/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 078</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_078/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_079" data-label="mwg 079">
+      <div class="card-media">
+        <img src="mwg_079/assets/medias/neverenough.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 079</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_079/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_080" data-label="mwg 080">
+      <div class="card-media">
+        <img src="mwg_080/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 080</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_080/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_081" data-label="mwg 081">
+      <div class="card-media">
+        <img src="mwg_081/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 081</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_081/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_082" data-label="mwg 082">
+      <div class="card-media">
+        <img src="mwg_082/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 082</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_082/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_083" data-label="mwg 083">
+      <div class="card-media">
+        <img src="mwg_083/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 083</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_083/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_084" data-label="mwg 084">
+      <div class="card-media">
+        <img src="mwg_084/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 084</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_084/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_085" data-label="mwg 085">
+      <div class="card-media">
+        <img src="mwg_085/assets/medias/papota.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 085</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_085/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_086" data-label="mwg 086">
+      <div class="card-media">
+        <img src="mwg_086/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 086</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_086/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_087" data-label="mwg 087">
+      <div class="card-media">
+        <img src="mwg_087/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 087</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_087/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_088" data-label="mwg 088">
+      <div class="card-media">
+        <img src="mwg_088/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 088</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_088/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_089" data-label="mwg 089">
+      <div class="card-media">
+        <img src="mwg_089/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 089</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_089/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_090" data-label="mwg 090">
+      <div class="card-media">
+        <img src="mwg_090/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 090</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_090/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_091" data-label="mwg 091">
+      <div class="card-media">
+        <img src="mwg_091/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 091</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_091/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_092" data-label="mwg 092">
+      <div class="card-media">
+        <img src="mwg_092/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 092</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_092/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_093" data-label="mwg 093">
+      <div class="card-media">
+        <img src="mwg_093/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 093</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_093/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_094" data-label="mwg 094">
+      <div class="card-media">
+        <img src="mwg_094/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 094</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_094/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_095" data-label="mwg 095">
+      <div class="card-media">
+        <img src="mwg_095/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 095</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_095/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_096" data-label="mwg 096">
+      <div class="card-media">
+        <img src="mwg_096/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 096</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_096/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_097" data-label="mwg 097">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 097</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 097</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_097/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_098" data-label="mwg 098">
+      <div class="card-media">
+        <img src="mwg_098/assets/medias/lewis.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 098</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_098/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_101" data-label="mwg 101">
+      <div class="card-media">
+        <img src="mwg_101/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 101</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_101/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_102" data-label="mwg 102">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 102</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 102</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_102/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_103" data-label="mwg 103">
+      <div class="card-media">
+        <img src="mwg_103/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 103</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_103/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_104" data-label="mwg 104">
+      <div class="card-media">
+        <img src="mwg_104/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 104</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_104/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_105" data-label="mwg 105">
+      <div class="card-media">
+        <img src="mwg_105/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 105</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_105/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_106" data-label="mwg 106">
+      <div class="card-media">
+        <img src="mwg_106/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 106</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_106/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_107" data-label="mwg 107">
+      <div class="card-media">
+        <img src="mwg_107/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 107</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_107/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_108" data-label="mwg 108">
+      <div class="card-media">
+        <img src="mwg_108/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 108</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_108/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_109" data-label="mwg 109">
+      <div class="card-media">
+        <img src="mwg_109/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 109</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_109/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_110" data-label="mwg 110">
+      <div class="card-media">
+        <img src="mwg_110/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 110</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_110/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_111" data-label="mwg 111">
+      <div class="card-media">
+        <img src="mwg_111/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 111</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_111/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_112" data-label="mwg 112">
+      <div class="card-media">
+        <div class="card-fallback" aria-hidden="true">MWG 112</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 112</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_112/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_113" data-label="mwg 113">
+      <div class="card-media">
+        <img src="mwg_113/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 113</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_113/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_114" data-label="mwg 114">
+      <div class="card-media">
+        <img src="mwg_114/assets/medias/01.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 114</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_114/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-id="mwg_115" data-label="mwg 115">
+      <div class="card-media">
+        <img src="mwg_115/assets/medias/1.png" alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2>MWG 115</h2>
+          
+        </div>
+        <a class="card-link" href="mwg_115/index.html" target="_blank" rel="noopener noreferrer">
+          Abrir demo
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+    </section>
+
+    <p id="empty" class="empty">Nenhum componente encontrado para essa busca.</p>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const visibleCount = document.getElementById("visible-count");
+    const emptyState = document.getElementById("empty");
+
+    function normalize(value) {
+      return value.toLowerCase().trim();
+    }
+
+    function filterCards() {
+      const query = normalize(searchInput.value);
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const id = normalize(card.dataset.id || "");
+        const label = normalize(card.dataset.label || "");
+        const matches = !query || id.includes(query) || label.includes(query);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+
+      visibleCount.textContent = String(visible);
+      emptyState.classList.toggle("visible", visible === 0);
+    }
+
+    searchInput.addEventListener("input", filterCards);
+  </script>
+</body>
+</html>

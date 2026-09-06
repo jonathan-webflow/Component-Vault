@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MWG 104</title>
+		<link rel="stylesheet" href="assets/style.css">
+		<link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+	</head>
+	<body>
+		<section class="mwg_effect104">
+			<p class="scroll">Scroll</p>
+
+			<div class="pin-height">
+				<div class="container">
+					<svg width="2577" height="391" viewBox="0 0 2577 391" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<clipPath id="round-clip" clipPathUnits="objectBoundingBox">
+								<rect width="1" height="1" rx=".08" ry=".08"/>
+							</clipPath>
+						</defs>
+						<path id="line" d="M0 195H644H1288H1932H2576"/>
+						<path id="wave" d="M0.21875 190.5C0.21875 190.5 382.004 0.5 644.219 0.5C906.434 0.5 1051.3 78.1239 1288.22 190.5C1531.72 306 1668.87 390.5 1932.22 390.5C2195.57 390.5 2576.22 190.5 2576.22 190.5" stroke="#FFF" style="opacity:0;"/>
+						<g id="track">
+							<text class="segment" fill="#FFF" font-size="350">
+								<textPath href="#line" text-anchor="start">Sync the BPM</textPath>
+							</text>
+							<image class="segment" href="assets/medias/1.png" height="300" clip-path="url(#round-clip)"/>
+							<text class="segment" fill="#FFF" font-size="350">
+								<textPath href="#line" text-anchor="start">with your heartbeat</textPath>
+							</text>
+							<image class="segment" href="assets/medias/2.gif" height="300" clip-path="url(#round-clip)"/>
+							<text class="segment" fill="#FFF" font-size="350">
+								<textPath href="#line" text-anchor="start">to feel the pulse</textPath>
+							</text>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		<!-- GSAP -->
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/MorphSVGPlugin.min.js"></script>
+
+		<!-- LENIS SMOOTH SCROLL (OPTIONAL) -->
+		<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+
+		<!-- EFFECT CODE -->
+		<script src="assets/script.js"></script>
+	</body>
+</html>

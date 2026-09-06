@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+
+.mwg_effect082 {
+  padding: 1px 0 0; /* to prevent first image to be shown before scroll */  
+}
+.mwg_effect082 .scroll {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.mwg_effect082 .pin-height {
+  height: 400vh;
+}
+.mwg_effect082 .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 100vh;
+}
+.mwg_effect082 .media {
+  position: absolute;
+  width: 25vw;
+  aspect-ratio: 1;
+  object-fit: contain;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .mwg_effect082 .container {
+      perspective: 50vw;
+  }
+  .mwg_effect082 .media {
+      width: 70vw;
+  }
+}

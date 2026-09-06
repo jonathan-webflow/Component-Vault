@@ -1,0 +1,47 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+/* if that's the only section of your page, you can use this code to prevent scroll on mobile devices */
+/* html:has(.mwg_effect080), 
+body:has(.mwg_effect080) {
+    overflow: hidden;
+} */
+body {
+    background: #121212;
+}
+.mwg_effect080 .container {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+}
+.mwg_effect080 .media {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mwg_effect080 .media img {
+  width: 9vw;
+  height: auto;
+  display: block;
+}
+.mwg_effect080 .media img.landscape {
+  width: auto;
+  height: 9vw;
+}
+
+@media (max-width: 768px) {
+  .mwg_effect080 .media img {
+      width: 28vw;
+  }
+  .mwg_effect080 .media img.landscape {
+      height: 28vw;
+  }
+}

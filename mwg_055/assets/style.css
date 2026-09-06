@@ -1,0 +1,45 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+}
+.mwg_effect055 {
+  height: 100dvh;
+  font-size: 10vw;
+  overflow: hidden;
+}
+.mwg_effect055 .container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.mwg_effect055 .sentence {
+  white-space: nowrap;
+  width: max-content;
+  z-index: 1;
+  padding: 0 2vw;
+  gap: 2vw;
+  display: flex;
+  align-items: center;
+}
+.mwg_effect055 .media {
+  width: 25vw;
+  aspect-ratio: 0.75;
+  border-radius: 1vw;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .mwg_effect055 .media {
+    width: 35vw;
+  }
+}

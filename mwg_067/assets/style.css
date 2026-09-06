@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect067 .pin-height {
+    height: 400vh;
+}
+.mwg_effect067 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mwg_effect067 .container {
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+    perspective: 60vw;
+    font-size: max(14.5vw, 90px);
+    letter-spacing: -0.04em;
+    mask-image: linear-gradient(transparent 0%, transparent 25%, #000 40%, #000 60%, transparent 75%, transparent 100%);
+}
+.mwg_effect067 .text {
+    display: flex;
+    transform-style: preserve-3d;
+}
+.mwg_effect067 .text span {
+    transform: rotateX(60deg);
+    transform-style: preserve-3d;
+}
+.mwg_effect067 .text span span {
+    transform: translate3d(0, 0, -50vh);
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect067 .container {
+        mask-image: linear-gradient(transparent 0%, transparent 35%, #000 40%, #000 60%, transparent 65%, transparent 100%);
+    }
+}

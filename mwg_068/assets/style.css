@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+}
+.mwg_effect068 {
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect068 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mwg_effect068 .pin-height {
+    height: 600vh;
+}
+.mwg_effect068 .container {
+    height: 100vh;
+    overflow: hidden;
+    perspective: 100vw;
+    transform-style: preserve-3d;
+}
+.mwg_effect068 .header {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.mwg_effect068 .header p:last-child {
+    text-decoration: underline;
+}
+.mwg_effect068 .media {
+    width: 14vw;
+    height: auto;
+    position: absolute;
+    right: 100%;
+    top: 50vh;
+    transform: translate(0, -50%);
+    transform-style: preserve-3d;
+}
+.mwg_effect068 .media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.2, 1.2) translate3d(0, 0, 16vw);
+    backface-visibility: hidden;
+    border-radius: 1vw;
+}
+.mwg_effect068 .media p {
+    position: absolute;
+    width: max-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.7vw;
+    border: 1px solid #121212;
+    padding: 0.15em 0.4em 0;
+    border-radius: 1vw;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 16vw);
+    text-transform: uppercase;
+    color: #121212;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect068 {
+        font-size: 16px;
+    }
+    .mwg_effect068 .media {
+        width: 25vw;
+    }
+    .mwg_effect068 .media img {
+        transform: scale(1.2, 1.2) translate3d(0, 0, 27vw);
+    }
+    .mwg_effect068 .media p {
+        border: 0;
+        transform: translate3d(-50%, 0, 27vw);
+        font-size: 1.5vw;
+    }
+}

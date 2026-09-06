@@ -1,0 +1,56 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+}
+/* here to prevent scroll bumps, remove this if you want to keep the flow of the page */
+html:has(.mwg_effect106), 
+body:has(.mwg_effect106) {
+    overflow: hidden;
+}
+
+.mwg_effect106 {
+    height: 100vh;
+    overflow: hidden;
+}
+.mwg_effect106 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.mwg_effect106 .medias {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.mwg_effect106 .media {
+    position: absolute;
+    top: calc(50% - 6vw);
+    left: calc(50% - 6vw);
+    width: 12vw;
+    height: 12vw;
+    object-fit: contain;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect106 .media {
+        top: calc(50% - 15vw);
+        left: calc(50% - 15vw);
+        width: 30vw;
+        height: 30vw;
+    }
+}

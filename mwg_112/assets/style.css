@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+}
+.mwg_effect112 {
+    overflow: hidden;
+}
+.mwg_effect112 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mwg_effect112 .titles {
+    font: 500 normal min(8vw, 100px) / 1.05 'Inter';
+    letter-spacing: -0.03em;
+    margin: 0;
+    padding: 100vh 0;
+    text-align: center;
+}
+.mwg_effect112 .titles p {
+    margin: 0;
+}
+.mwg_effect112 .char {
+    display: inline-block;
+}
+.mwg_effect112 .char-inner {
+    display: inline-block;
+    will-change: transform;
+}
+
+.mwg_effect112 .header {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    color: #000;
+    gap: 20px;
+    padding: 6px 6px 6px 15px;
+    z-index: 2;
+    border-radius: 30px;
+}
+.mwg_effect112 .header p {
+    line-height: 45px;
+}
+.mwg_effect112 .header p.spe {
+    background: #000;
+    color: #FFF;
+    padding: 0 20px;
+    border-radius: 23px;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .mwg_effect112 .titles {
+        font-size: 10vw;
+    }
+}

@@ -1,0 +1,72 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+}
+/* hero to prevent scroll bumps, remove this if you want to keep the flow of the page */
+html:has(.mwg_effect103), 
+body:has(.mwg_effect103) {
+    overflow: hidden;
+}
+.mwg_effect103 {
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mwg_effect103 .container {
+    height: calc(11vw / 0.8);
+    flex: 0 0 100%;
+    perspective: 100vw;
+    position: relative;
+}
+.mwg_effect103 .media {
+    width: 11vw;
+    height: auto;
+    aspect-ratio: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.mwg_effect103 .media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0.2vw;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.08);
+}
+.mwg_effect103 .medias-loader img {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect103 .container {
+        flex: 0 0 200vw;
+        height: calc(35vw / 0.8);
+    }
+    .mwg_effect103 .media {
+        width: 35vw;
+    }
+}

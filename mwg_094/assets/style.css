@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect094 {
+    overflow: hidden;
+    position: relative;
+}
+.mwg_effect094 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+.mwg_effect094 .container p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 5vh;
+}
+.mwg_effect094 .container p span {
+    color: #999;
+}
+.mwg_effect094 .cards {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    gap: 1vw;
+    will-change: transform;
+    padding: 0 105vw;
+    align-items: center;
+}
+.mwg_effect094 .card {
+    position: relative;
+    width: 12vw;
+    height: auto;
+    border-radius: 0.5vw;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect094 .container p {
+        font-size: 6.5vw;
+    }
+    .mwg_effect094 .card {
+        width: 30vw;
+    }
+}

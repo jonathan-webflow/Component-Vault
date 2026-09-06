@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font-family: 'Inter', sans-serif;
+}
+.mwg_effect102 .pin-height {
+    height: 600vh;
+}
+.mwg_effect102 .container {
+    height: 100vh;
+    perspective: 300vw;
+}
+.mwg_effect102 .container .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    font: 500 normal 13px / normal 'IBM Plex Mono';
+    text-transform: uppercase;
+}
+.mwg_effect102 .container p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    white-space: nowrap;
+    transform: translate3d(-50%, -50%, -8vw);
+    transform-style: preserve-3d;
+    font-size: 8vw;
+    letter-spacing: -0.05em;
+}
+.mwg_effect102 .container p span {
+    transform: translate3d(0, 0, 8vw);
+    display: block;
+    backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect102 .container .header {
+        display: none;
+    }
+    .mwg_effect102 .container p {
+        font-size: 9vw;
+    }
+}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #FFF;
+    font: 500 normal 13px/1.49 'IBM Plex Mono', sans-serif;
+    text-transform: uppercase;
+}
+.mwg_effect111 {
+    --media-h: calc(20vw / 1.4);
+    --media-h-center: 20vw;
+    --media-w-center: calc(var(--media-h-center) * 16 / 9);
+    position: relative;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    color: #000;
+    transition: background-color 0.3s;
+    transition-delay: 0.1s;
+    overflow: hidden;
+}
+
+.mwg_effect111.grey {
+    background-color: #999;
+}
+
+.mwg_effect111 .text-state-1 {
+    position: absolute;
+    top: calc(50% + var(--media-h-center) / 2 + 10px);
+    left: calc(50% - var(--media-w-center) / 2);
+    color: #999;
+    opacity: 0;
+}
+
+.mwg_effect111 .text-state-2 {
+    position: absolute;
+    top: calc(50% + var(--media-h) / 2 + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.mwg_effect111 .container {
+    width: 100%;
+    height: var(--media-h);
+}
+
+.mwg_effect111 .container::-webkit-scrollbar {
+    display: none;
+    height: 0;
+    background: transparent;
+}
+
+.mwg_effect111 .content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: max-content;
+    height: 100%;
+}
+
+.mwg_effect111 .media {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    will-change: transform;
+}
+
+.mwg_effect111:not(.intro-playing) .container {
+    cursor: grab;
+}
+
+@media (max-width: 900px) {
+    .mwg_effect111 .container {
+        height: auto;
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .mwg_effect111 .content {
+        gap: 15px;
+        padding: 0 30px;
+    }
+
+    .mwg_effect111 .media {
+        height: auto;
+        width: calc(100vw - 60px);
+        max-width: 500px;
+        scroll-snap-align: center;
+    }
+
+    .mwg_effect111 .text-state-1,
+    .mwg_effect111 .text-state-2 {
+        display: none;
+    }
+}

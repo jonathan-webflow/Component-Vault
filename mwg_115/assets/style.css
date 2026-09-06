@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+}
+.mwg_effect115 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mwg_effect115 .pin-height {
+    height: 600vh;
+}
+.mwg_effect115 .container {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    perspective: 90vh;
+    mask-image: linear-gradient(transparent 0%, #000 22%, #000 78%, transparent 100%);
+}
+.mwg_effect115 .roll {
+    position: relative;
+    transform-style: preserve-3d;
+}
+.mwg_effect115 .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    white-space: nowrap;
+    transform-style: preserve-3d;
+    font-size: max(28px, 5.4vw);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+.mwg_effect115 .line span {
+    display: inline-block;
+    backface-visibility: hidden;
+}
+.mwg_effect115 .line img {
+    height: 0.73em;
+    width: auto;
+    vertical-align: -0.02em;
+    margin: 0 0.2em;
+    border-radius: 0.12em;
+    backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect115 .pin-height {
+        height: 300vh;
+    }
+    .mwg_effect115 .container {
+        perspective: 140vh;
+        mask-image: linear-gradient(transparent 15%, #000 35%, #000 65%, transparent 85%);
+    }
+    .mwg_effect115 .line {
+        font-size: 11vw;
+    }
+}

@@ -1,0 +1,38 @@
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+}
+.mwg_effect071 {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.mwg_effect071 .container {
+    display: grid;
+    width: max-content;
+    gap: 4vw;
+    padding: 4vw;
+}
+.mwg_effect071 .media {
+    width: 15vw;
+    aspect-ratio: 1;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect071 .media {
+        width: 35vw;
+    }
+}

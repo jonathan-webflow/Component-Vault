@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* NORMALIZE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+  background: #121212;
+  color: #F1F1F1;
+  font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect085 {
+  font-size: max(30px, 6vw);
+}
+.mwg_effect085 .pin-height {
+  height: 500vh;
+}
+.mwg_effect085 .container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+.mwg_effect085 .footer {
+  position: absolute;
+  white-space: initial;
+  bottom: 25px;
+  left: 25px;
+}
+.mwg_effect085 .footer p {
+  font: 500 normal 11px / 1.4 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.mwg_effect085 .footer p span {
+  display: block;
+}
+.mwg_effect085 .footer p span:last-child {
+  color: #999;
+}
+.mwg_effect085 .footer img {
+  width: 150px;
+  aspect-ratio: 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.mwg_effect085 .sentence {
+  white-space: nowrap;
+  padding: 0 50vw;
+  z-index: 1;
+  position: relative;
+}
+.mwg_effect085 .word {
+  transition: 0.1s opacity;
+}
+.mwg_effect085 .word:not(.on) {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .mwg_effect085 .footer {
+    bottom: 15px;
+    left: 15px;
+  }
+  .mwg_effect085 .footer img {
+    width: 120px;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "component-vault",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-catalog.js",
+    "dev": "npm run build && npx serve ."
+  }
+}

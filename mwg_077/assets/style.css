@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+@font-face {
+    font-family: 'Moche';
+    src: url('fonts/Moche-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+/* if that's the only section of your page, you can use this code to prevent scroll on mobile devices */
+/* html:has(.mwg_effect077), 
+body:has(.mwg_effect077) {
+    overflow: hidden;
+} */
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect077 {
+    height: 100dvh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    perspective: 300vw;
+}
+.mwg_effect077 .media {
+    width: 20vw;
+    aspect-ratio: 0.72;
+    will-change: transform;
+    overflow: hidden;
+    border-radius: 1vw;
+}
+.mwg_effect077 .content {
+    position: absolute;
+    bottom: 4vw;
+    transform: translate(0, 50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: #000;
+    text-transform: uppercase;
+}
+.mwg_effect077 .media p {
+    font: bold normal 3.8vw / 1 'Moche';
+    letter-spacing: -0.02em;
+}
+.mwg_effect077 .media span {
+    font-size: 1vw;
+    text-transform: uppercase;
+    display: block;
+}
+.mwg_effect077 .media-foreground {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+.mwg_effect077 .media-background {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect077 .media {
+        width: 45vw;
+        border-radius: 2.2vw;
+    }
+    .mwg_effect077 .content {
+        bottom: 9vw;
+    }
+    .mwg_effect077 .content p {
+        font: bold normal 7vw / 1 'Moche';
+        padding: 0 0 0.8vw;
+    }
+    .mwg_effect077 .content span {
+        font-size: 3vw;
+    }
+}

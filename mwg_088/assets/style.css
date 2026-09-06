@@ -1,0 +1,51 @@
+/* NORMALIZE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+  background: #121212;
+}
+.mwg_effect088 {
+  height: 100dvh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+.mwg_effect088 .container {
+  display: flex;
+  gap: 2vw;
+  padding: 0 25px;
+  width: max-content;
+  white-space: nowrap;
+  cursor: grab;
+}
+.mwg_effect088 .media-parent {
+  width: 22vw;
+  transform-style: preserve-3d;
+}
+.mwg_effect088 .media {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+  .mwg_effect088 .container {
+    padding: 0 15px;
+    gap: 15px;
+  }
+  .mwg_effect088 .media-parent {
+    width: 35vw;
+  }
+}

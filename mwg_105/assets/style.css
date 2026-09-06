@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+
+.mwg_effect105 {
+    padding: 100vh 0;
+    overflow: hidden;
+}
+.mwg_effect105 .scroll {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mwg_effect105 .container {
+    font: 500 normal 5.4vw / 1.2 'Inter';
+    letter-spacing: -0.03em;
+    padding: 0 25px;
+    list-style-type: none;
+}
+.mwg_effect105 li {
+    opacity: 0.35;
+}
+.mwg_effect105 .medias {
+    position: fixed;
+    top: calc(50% - 5vw);
+    left: 25px;
+    height: 10vw;
+    aspect-ratio: 1.55;
+}
+.mwg_effect105 .medias img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.4vw;
+    visibility: hidden;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect105 .container {
+        font-size: 8vw;
+        line-height: 1;
+        padding: 0 15px;
+    }
+    .mwg_effect105 li {
+        max-width: 65vw;
+        padding: 1vw 0;
+    }
+    .mwg_effect105 .medias {
+        top: calc(50% - 7vw);
+        height: 14vw;
+        left: 15px;
+    }
+}
+
