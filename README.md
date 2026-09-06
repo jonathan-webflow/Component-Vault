@@ -4,6 +4,8 @@ Galeria de efeitos GSAP (Made With GSAP) prontos para preview e reutilização e
 
 ## Demo
 
+**https://component-vault-lemon.vercel.app**
+
 A galeria cataloga **65 componentes** com busca, thumbnails e links para demos em tela cheia.
 
 ## Estrutura
